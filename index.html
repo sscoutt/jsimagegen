@@ -5,8 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>can you see me?</p>
+    <div id="webPage">
+        <h1>JavaScript Image Generator</h1>
+        <div id="innerWebPage">
+            <canvas style="border: 3px black solid; height: 300px; width: 300px" id="imageDisplay"></canvas>
+            <div id="optionsContainer">
+                <div class="subMenu">
+                    <h2>Categories</h2>
+                    <div class="vertContainer">
+                        <div class="btnContainer">
+                            <div class="normBtn">Hair</div>
+                            <div class="normBtn">Other Hair</div>
+                            <div class="normBtn">Even More Hair</div>
+                        </div>
+                        <div class="btnContainer">
+                            <div class="normBtn">Foot</div>
+                            <div class="normBtn">Other Foot</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subMenu" style="margin: 10px 0px 0px 0px">
+                    <h2>Hair Options</h2>
+                    <div class="vertContainer">
+                        <div class="btnContainer">
+                            <div class="normBtn">Floof</div>
+                        </div>
+                        <div class="btnContainer">
+                            <div class="normBtn">Floof-Floofer</div>
+                            <div class="normBtn">Floof-Flooferer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
