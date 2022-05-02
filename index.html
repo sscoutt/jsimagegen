@@ -16,16 +16,16 @@
     <div id="webPage">
         <h1>Javascript Image Generator</h1>
         <div id="innerWebPage">
-            <img src="./img/pancake.png" alt="ONE COLORFUL BOUNCEY BOUNCE HONEY PANCAKE.">
+            <img id="pancakeOrder" src="./img/pancake.png" alt="ONE COLORFUL BOUNCEY BOUNCE HONEY PANCAKE.">
             <canvas style="border: 3px black solid; height: 300px; width: 300px" id="imageDisplay"></canvas>
             <div id="optionsContainer">
                 <div class="subMenu">
                     <h2>Categories</h2>
                     <div class="vertContainer">
                         <div class="btnContainer">
-                            <div class="normBtn" id="hairBtn">Hair</div>
-                            <div class="normBtn" id="otherHairBtn">Other Hair</div>
-                            <div class="normBtn" id="evenMoreHairBtn">Even More Hair</div>
+                            <div class="normBtn" id="hairBtn" onclick="hideObject(selectedObj)">Hair</div>
+                            <div class="normBtn" id="otherHairBtn" onclick="showObject(selectedObj)">Other Hair</div>
+                            <div class="normBtn" id="evenMoreHairBtn" onclick="toggleVisibility(selectedObj)">Even More Hair</div>
                         </div>
                         <div class="btnContainer">
                             <div class="normBtn" id="footBtn">Foot</div>
