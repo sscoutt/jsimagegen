@@ -6,6 +6,7 @@ can.height = 100;
 
 var selectedObj = document.getElementById("pancakeOrder");
 
+// Visibility functions
 function hideObject(selectedObj) {
     selectedObj.style.visibility = "hidden";
 }
