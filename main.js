@@ -7,7 +7,7 @@ can.height = 100;
 var selectedObj = document.getElementById("pancakeOrder");
 var floofBtn = document.getElementById("floofBtn");
 var floofFlooferBtn = document.getElementById("floof-FlooferBtn");
-var yummyPancake = document.getElementById("yummyPancakes");
+var yummyPancakes = document.getElementById("yummyPancakes");
 
 // Visibility functions
 function hideObject(selectedObj) {
