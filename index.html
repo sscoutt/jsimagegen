@@ -17,6 +17,7 @@
         <h1>Javascript Image Generator</h1>
         <div id="innerWebPage">
             <img id="pancakeOrder" src="./img/pancake.png" alt="ONE COLORFUL BOUNCEY BOUNCE HONEY PANCAKE.">
+            <img id="yummyPancakes" src="https://www.averiecooks.com/wp-content/uploads/2017/06/buttermilkpancakes-10-720x720.jpg">
             <canvas style="border: 3px black solid; height: 300px; width: 300px" id="imageDisplay"></canvas>
             <div id="optionsContainer">
                 <div class="subMenu">
@@ -28,7 +29,7 @@
                             <div class="normBtn" id="evenMoreHairBtn" onclick="toggleVisibility(selectedObj)">Even More Hair</div>
                         </div>
                         <div class="btnContainer">
-                            <div class="normBtn" id="footBtn">Foot</div>
+                            <div class="normBtn" id="footBtn" onclick="toggleVisibility(yummyPancakes)">Foot</div>
                             <div class="normBtn" id="otherFootBtn">Other Foot</div>
                         </div>
                     </div>

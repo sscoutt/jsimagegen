@@ -4,9 +4,10 @@ var ctx = can.getContext("2d");
 can.width = 100;
 can.height = 100;
 
-var pancakes = document.getElementById("pancakeOrder");
+var selectedObj = document.getElementById("pancakeOrder");
 var floofBtn = document.getElementById("floofBtn");
 var floofFlooferBtn = document.getElementById("floof-FlooferBtn");
+var yummyPancake = document.getElementById("yummyPancakes");
 
 // Visibility functions
 function hideObject(selectedObj) {
