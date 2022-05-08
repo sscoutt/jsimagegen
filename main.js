@@ -38,6 +38,16 @@ function setSelectedObj(id) {
     testScope();
 }
 
+function toggleSize(selectedObj) {
+    if (selectedObj.style.height == "30px") {
+        (selectedObj.style.height = "300px")
+    }
+    else {
+        (selectedObj.style.height = "30px")
+    }
+}
+
+
 function testScope() {
     alert(`Scope test: selectedObj is ${selectedObj.textContent}`);
 }
