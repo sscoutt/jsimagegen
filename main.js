@@ -40,7 +40,7 @@ function changeColor(selectedObj) {
 function setSelectedObj(id) {
     var selectedObj = document.getElementById(id);
     alert(`selected ${selectedObj.textContent}!`);
-    testScope();
+    testScope(selectedObj);
 }
 
 function toggleSize(selectedObj) {
@@ -53,7 +53,7 @@ function toggleSize(selectedObj) {
 }
 
 
-function testScope() {
+function testScope(selectedObj) {
     alert(`Scope test: selectedObj is ${selectedObj.textContent}`);
 }
 
