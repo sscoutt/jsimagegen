@@ -4,7 +4,7 @@ var ctx = can.getContext("2d");
 can.width = 100;
 can.height = 100;
 
-var selectedObj = document.getElementById("pancakeOrder");
+// var selectedObj = document.getElementById("pancakeOrder");
 var floofBtn = document.getElementById("floofBtn");
 var floofFlooferBtn = document.getElementById("floof-FlooferBtn");
 var yummyPancakes = document.getElementById("yummyPancakes");
@@ -40,7 +40,6 @@ function changeColor(selectedObj) {
 function setSelectedObj(id) {
     var selectedObj = document.getElementById(id);
     alert(`selected ${selectedObj.textContent}!`);
-    testScope(selectedObj);
 }
 
 function toggleSize(selectedObj) {
@@ -50,11 +49,6 @@ function toggleSize(selectedObj) {
     else {
         (selectedObj.style.height = "30px")
     }
-}
-
-
-function testScope(selectedObj) {
-    alert(`Scope test: selectedObj is ${selectedObj.textContent}`);
 }
 
 function strawberryPancakes() {
