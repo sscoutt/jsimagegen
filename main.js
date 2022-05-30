@@ -7,7 +7,6 @@ var canHeight = 600;
 can.width = canWidth;
 can.height = canHeight;
 
-// var selectedObj = document.getElementById("pancakeOrder");
 var floofBtn = document.getElementById("floofBtn");
 var floofFlooferBtn = document.getElementById("floof-FlooferBtn");
 var yummyPancakes = document.getElementById("yummyPancakes");
@@ -62,6 +61,7 @@ function strawberryPancakes() {
 function noStrawberries() {
     yummyPancakes.style.visibility = "visible";
     strawberries.style.visibility = "hidden";
+<<<<<<< HEAD
 }
 
 
@@ -84,3 +84,6 @@ function mainLoop() {
 }
 
 setInterval(mainLoop,1000/loopInterval);
+=======
+}
+>>>>>>> ad0fc0c2b5bc09a1277f64e8c0aa864bf0cf7228
