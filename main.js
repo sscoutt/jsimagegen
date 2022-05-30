@@ -61,7 +61,6 @@ function strawberryPancakes() {
 function noStrawberries() {
     yummyPancakes.style.visibility = "visible";
     strawberries.style.visibility = "hidden";
-<<<<<<< HEAD
 }
 
 
