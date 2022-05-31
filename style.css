@@ -55,7 +55,7 @@ body {
     padding: 20px;
 }
 
-.vertContainer {
+.columnContainer {
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -63,7 +63,7 @@ body {
     flex-direction: column;
 }
 
-.btnContainer {
+.rowContainer {
     margin: 0px;
     padding: 0px;
     display: flex;
