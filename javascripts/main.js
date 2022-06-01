@@ -55,6 +55,15 @@ function rotateByCoords(x1,y1,x2,y2,a) {
     ctx.translate(0-pointX,0-pointY);
 }
 
+function rotateByCorner(x,y,width,height,a) {
+    let pointX = (x + (x + width)) / 2;
+    let pointY = (y + (y + height)) / 2;
+    ctx.save();
+    ctx.translate(pointX,pointY);
+    ctx.rotate(a * Math.PI / 180);
+    ctx.translate(0-pointX,0-pointY);
+}
+
 
 
 //canvas magic
