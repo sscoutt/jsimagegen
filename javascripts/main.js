@@ -47,16 +47,18 @@ function rotate(x,y,a) {
 }
 
 function rotateByCoords(x1,y1,x2,y2,a) {
+    let pointX = (x1 + x2) / 2;
+    let pointY = (y1 + y2) / 2;
     ctx.save();
-    ctx.translate(x,y);
+    ctx.translate(pointX,pointY);
     ctx.rotate(a * Math.PI / 180);
-    ctx.translate(0-x,0-y);
+    ctx.translate(0-pointX,0-pointY);
 }
 
 
 
 //canvas magic
-var pancakeImg = document.getElementById("pancakeOrder");
+var alpacaImgVar = document.getElementById("alpacaImg");
 
 var loopInterval = 50;
 var mainTimer = 0;
@@ -66,15 +68,15 @@ function mainLoop() {
     //ctx.drawImage(pancakeImg,10,10,400+Math.sin(mainTimer)*100,400+Math.cos(mainTimer)*100);
 
     ctx.beginPath();
-    rotate(70,70,mainTimer*15);
-    ctx.rect(60,60,20,20);
+    rotate(canWidth/2,canHeight/2,-90);
+    ctx.drawImage(alpacaImgVar,0,0,canWidth,canHeight);
     ctx.fill();
     ctx.restore();
 
     ctx.beginPath();
     rotate(30,30,mainTimer*45);
     ctx.rect(20,20,20,20);
-    ctx.fill();
+    //ctx.fill();
     ctx.restore();
 
     //rotate(x,y,a)
