@@ -1,22 +1,24 @@
 body {
+    transform-origin: top center;
     font-family: 'Poppins', sans-serif;
-    margin: 10px;
+    margin: 0px;
     padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
+    overflow: hidden;
 }
 
 #webPage {
     background-color: #ffffff;
     border-radius: 10px;
-    padding: 20px;
     width: 1200px;
     height: 600px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #innerWebPage {
