@@ -169,7 +169,7 @@ function mainLoop() {
     clearCanvas();
 
     ctx.beginPath();
-    rotate(canWidth / 2, canHeight / 2, 270);
+    rotate(canWidth / 2, canHeight / 2, 0);
     ctx.drawImage(alpacaImgVar, 0, 0, canWidth, canHeight);
     ctx.restore();
 
