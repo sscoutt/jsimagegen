@@ -154,10 +154,13 @@ function rotateByImage(src, x, y, width, height, a, ratioKeep, ratioFromHeight) 
 
 //image variables (fetched by element ID)
 var alpacaImgVar = document.getElementById("alpacaImg");
+var raincoatImgVar = document.getElementById("coatsRaincoatImg");
 
 //the [interval] variable is the FPS of the mainLoop() function
 var loopInterval = 50;
 var mainTimer = 0;
+
+var alpacaRatio = canWidth / alpacaImgVar.width;
 
 //mainLoop() function updates the canvas and runs [loopInterval] times every second
 function mainLoop() {
@@ -170,12 +173,14 @@ function mainLoop() {
 
     ctx.beginPath();
     rotate(canWidth / 2, canHeight / 2, 0);
-    ctx.drawImage(alpacaImgVar, 0, 0, canWidth, canHeight);
+    ctx.drawImage(alpacaImgVar, 0, 0, alpacaImgVar.width * alpacaRatio, alpacaImgVar.height * alpacaRatio);
     ctx.restore();
 
     //the above code can be simplified by using the new rotateByImage() function:
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
-    //(last two [false] parameters could be excluded in this case)
+    //(last two [false] parameters could be excluded in this case);
+
+    rotateByImage(raincoatImgVar,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0,false,false);
 }
 
 //runs mainLoop() based on loopInterval
