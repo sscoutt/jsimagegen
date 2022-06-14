@@ -7,6 +7,8 @@ var canHeight = 600;
 can.width = canWidth;
 can.height = canHeight;
 
+var currentTab = "hair";
+
 // Window updating functions
 
 function scaleWindow() {
@@ -175,12 +177,13 @@ function mainLoop() {
     rotate(canWidth / 2, canHeight / 2, 0);
     ctx.drawImage(alpacaImgVar, 0, 0, alpacaImgVar.width * alpacaRatio, alpacaImgVar.height * alpacaRatio);
     ctx.restore();
+    console.log(currentTab);
 
     //the above code can be simplified by using the new rotateByImage() function:
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
     //(last two [false] parameters could be excluded in this case);
 
-    rotateByImage(raincoatImgVar,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0,false,false);
+    rotateByImage(raincoatImgVar,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0);
 }
 
 //runs mainLoop() based on loopInterval
