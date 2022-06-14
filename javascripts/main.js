@@ -207,7 +207,7 @@ function mainLoop() {
     //(last two [false] parameters could be excluded in this case);
 
     rotateByImage(displayedCoat,140,20,displayedCoat.width * alpacaRatio,displayedCoat.height * alpacaRatio,0);
-    rotateByImage(displayedGloves,140,20,displayedGloves.width * alpacaRatio,displayedGloves.height * alpacaRatio,0);
+    rotateByImage(displayedGloves,300,500,displayedGloves.width * alpacaRatio,displayedGloves.height * alpacaRatio,0);
 }
 
 //runs mainLoop() based on loopInterval
