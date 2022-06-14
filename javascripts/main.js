@@ -201,7 +201,6 @@ function mainLoop() {
     rotate(canWidth / 2, canHeight / 2, 0);
     ctx.drawImage(alpacaImgVar, 0, 0, alpacaImgVar.width * alpacaRatio, alpacaImgVar.height * alpacaRatio);
     ctx.restore();
-    console.log(currentTab);
 
     //the above code can be simplified by using the new rotateByImage() function:
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
@@ -213,3 +212,8 @@ function mainLoop() {
 
 //runs mainLoop() based on loopInterval
 setInterval(mainLoop, 1000 / loopInterval);
+
+//function that runs on page load
+window.onload = function(){
+    setCoat('none');
+}

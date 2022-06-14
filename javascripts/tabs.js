@@ -24,7 +24,6 @@ var containerArr = ['hair','gloves','coat','necklace'];
 
 function changeContainer(container) {
     currentTab = container;
-    console.log(currentTab);
     for (let i = 0; i < containerArr.length; i++) {
         hideElement(containerArr[i] + 'OptionsContainer');
         removeClass(containerArr[i] + 'Btn','selectedBtn');
