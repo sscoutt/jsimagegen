@@ -15,6 +15,7 @@
 <body>
     <img src="img/alpaca.png" style="display: none" id="alpacaImg">
     <img src="img/coats/rainCoat.png" style="display: none" id="coatsRaincoatImg">
+    <img src="img/coats/itchyCoat.png" style="display: none" id ="coatsItchyCoatImg">
 
     <div id="webPage">
         <h1>Javascript Image Generator</h1>
@@ -64,12 +65,12 @@
                     <h2>Coat Options</h2>
                     <div class="columnContainer">
                         <div class="rowContainer">
-                            <div class="normBtn" id="itchyCoatBtn" onclick= >Itchy Coat</div>
+                            <div class="normBtn" id="itchyCoatBtn" onclick="setCoat('coatsItchyCoatImg')" >Itchy Coat</div>
                             <div class="normBtn" id="fancyCoatBtn" onclick= >Fancy Coat</div>
                         </div>
                         <div class="rowContainer">
-                            <div class="normBtn" id="raincoatCoatBtn" onclick=>Raincoat</div>
-                            <div class="normBtn" id="noCoatBtn" onclick=>No Coat</div>
+                            <div class="normBtn" id="raincoatCoatBtn" onclick="setCoat('coatsRaincoatImg')">Raincoat</div>
+                            <div class="normBtn" id="noCoatBtn" onclick="setCoat('none')">No Coat</div>
                         </div>
                     </div>
                 </div>

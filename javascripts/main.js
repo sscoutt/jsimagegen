@@ -59,9 +59,19 @@ function toggleVisibility(selectedObj) {
     }
 }
 
-//Color functions
+
+
 function setSelectedObj(id) {
     var selectedObj = document.getElementById(id);
+}
+
+function setCoat(coatId) {
+    if (coatId == "none"){
+        displayedCoat = "none"
+    } 
+    else {
+        displayedCoat = document.getElementById(coatId)
+    }
 }
 
 
@@ -126,28 +136,30 @@ function rotateByCorner(x, y, width, height, a) {
 //[ratioKeep] is an optional parameter that preserves the image's aspect ratio based on width
 //[ratioFromHeight] is an optional boolean parameter that overrides ratioKeep and instead defines the aspect ratio based on height if [ratioFromHeight]'s value equals true
 function rotateByImage(src, x, y, width, height, a, ratioKeep, ratioFromHeight) {
-    if (ratioKeep === undefined || ratioKeep === false) {
-        ctx.beginPath();
-        rotateByCorner(x, y, width, height, a);
-        ctx.drawImage(src, x, y, width, height);
-        ctx.restore();
-    }
-    if (ratioKeep) {
-        if (ratioFromHeight === true) {
-            let aspectRatio = src.width / src.height;
-            let newWidth = height * aspectRatio;
+    if (src !== "none") {
+        if (ratioKeep === undefined || ratioKeep === false) {
             ctx.beginPath();
-            rotateByCorner(x, y, newWidth, height, a);
-            ctx.drawImage(src, x, y, newWidth, height);
+            rotateByCorner(x, y, width, height, a);
+            ctx.drawImage(src, x, y, width, height);
             ctx.restore();
         }
-        else {
-            let aspectRatio = src.height / src.width;
-            let newHeight = width * aspectRatio;
-            ctx.beginPath();
-            rotateByCorner(x, y, width, newHeight, a);
-            ctx.drawImage(src, x, y, width, newHeight);
-            ctx.restore();
+        if (ratioKeep) {
+            if (ratioFromHeight === true) {
+                let aspectRatio = src.width / src.height;
+                let newWidth = height * aspectRatio;
+                ctx.beginPath();
+                rotateByCorner(x, y, newWidth, height, a);
+                ctx.drawImage(src, x, y, newWidth, height);
+                ctx.restore();
+            }
+            else {
+                let aspectRatio = src.height / src.width;
+                let newHeight = width * aspectRatio;
+                ctx.beginPath();
+                rotateByCorner(x, y, width, newHeight, a);
+                ctx.drawImage(src, x, y, width, newHeight);
+                ctx.restore();
+            }
         }
     }
 }
@@ -183,7 +195,7 @@ function mainLoop() {
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
     //(last two [false] parameters could be excluded in this case);
 
-    rotateByImage(raincoatImgVar,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0);
+    rotateByImage(displayedCoat,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0);
 }
 
 //runs mainLoop() based on loopInterval
