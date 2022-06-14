@@ -8,7 +8,8 @@ can.width = canWidth;
 can.height = canHeight;
 
 var currentTab = "hair";
-
+var displayedCoat = "none";
+var displayedGloves = "none";
 // Window updating functions
 
 function scaleWindow() {
@@ -73,6 +74,15 @@ function setCoat(coatId) {
         displayedCoat = document.getElementById(coatId)
     }
 }
+
+function setGloves(glovesId) {
+    if (glovesId == "none"){
+        displayedGloves = "none"
+    }
+    else {
+        displayedGloves = document.getElementById(glovesId)
+    }
+    }
 
 
 
@@ -169,6 +179,8 @@ function rotateByImage(src, x, y, width, height, a, ratioKeep, ratioFromHeight) 
 //image variables (fetched by element ID)
 var alpacaImgVar = document.getElementById("alpacaImg");
 var raincoatImgVar = document.getElementById("coatsRaincoatImg");
+raincoatImgVar.setAttribute('xOffset',140);
+raincoatImgVar.setAttribute('yOffset',20);
 
 //the [interval] variable is the FPS of the mainLoop() function
 var loopInterval = 50;
@@ -195,7 +207,8 @@ function mainLoop() {
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
     //(last two [false] parameters could be excluded in this case);
 
-    rotateByImage(displayedCoat,140,20,raincoatImgVar.width * alpacaRatio,raincoatImgVar.height * alpacaRatio,0);
+    rotateByImage(displayedCoat,140,20,displayedCoat.width * alpacaRatio,displayedCoat.height * alpacaRatio,0);
+    rotateByImage(displayedGloves,140,20,displayedGloves.width * alpacaRatio,displayedGloves.height * alpacaRatio,0);
 }
 
 //runs mainLoop() based on loopInterval

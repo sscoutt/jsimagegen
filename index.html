@@ -14,8 +14,13 @@
 </head>
 <body>
     <img src="img/alpaca.png" style="display: none" id="alpacaImg">
-    <img src="img/coats/rainCoat.png" style="display: none" id="coatsRaincoatImg">
+    <img src="img/coats/rainCoat.png" style="display: none" id="coatsRaincoatImg" data-xo=140 data-yo=20>
     <img src="img/coats/itchyCoat.png" style="display: none" id ="coatsItchyCoatImg">
+    <img src="img/coats/fancyCoat.png" style="display: none" id ="coatsFancyCoatImg">
+    <img src="img/gloves/fancyGloves.png" style="display: none;" id="glovesFancyGlovesImg">
+    <img src="img/gloves/hookhands.png" style="display: none;" id="glovesHookHandsimg"> 
+    <img src="img/gloves/mittens.png" style="display: none;" id="glovesMittensimg">
+
 
     <div id="webPage">
         <h1>Javascript Image Generator</h1>
@@ -52,12 +57,12 @@
                     <h2>Gloves Options</h2>
                     <div class="columnContainer">
                         <div class="rowContainer">
-                            <div class="normBtn" id="mittensBtn" onclick="">Mittens</div>
-                            <div class="normBtn" id="fancyGlovesBtn" onclick="">Fancy Gloves</div>
+                            <div class="normBtn" id="mittensBtn" onclick="setGloves('glovesMittensimg')">Mittens</div>
+                            <div class="normBtn" id="fancyGlovesBtn" onclick="setGloves('glovesFancyGlovesImg')" >Fancy Gloves</div>
                         </div>
                         <div class="rowContainer">
-                            <div class="normBtn" id="hookHandsBtn" onclick="">Hook Hands</div>
-                            <div class="normBtn" id="theGlovesAreOffBtn" onclick="">THE GLOVES ARE OFF</div>
+                            <div class="normBtn" id="hookHandsBtn" onclick="setGloves('glovesHookHandsimg')">Hook Hands</div>
+                            <div class="normBtn" id="theGlovesAreOffBtn" onclick="setGloves('none')">THE GLOVES ARE OFF</div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +71,7 @@
                     <div class="columnContainer">
                         <div class="rowContainer">
                             <div class="normBtn" id="itchyCoatBtn" onclick="setCoat('coatsItchyCoatImg')" >Itchy Coat</div>
-                            <div class="normBtn" id="fancyCoatBtn" onclick= >Fancy Coat</div>
+                            <div class="normBtn" id="fancyCoatBtn" onclick="setCoat('coatsFancyCoatImg')" >Fancy Coat</div>
                         </div>
                         <div class="rowContainer">
                             <div class="normBtn" id="raincoatCoatBtn" onclick="setCoat('coatsRaincoatImg')">Raincoat</div>
