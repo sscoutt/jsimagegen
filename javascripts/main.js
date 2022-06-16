@@ -10,8 +10,19 @@ can.height = canHeight;
 var currentTab = "hair";
 var displayedCoat = "none";
 var displayedGloves = "none";
-// Window updating functions
+var displayedHair = "none";
 
+var placementMode = false;
+var placementImg = document.getElementById('hairAfroHairImg');
+var placementAngle = 0;
+var mouseX = 0;
+var mouseY = 0;
+
+
+
+// Window updating functions
+//window scale factor
+var scaleFactor = 1;
 function scaleWindow() {
     let win = window;
     doc = document;
@@ -23,12 +34,12 @@ function scaleWindow() {
     let width = 1200;
     let height = 640;
 
-    let scaleFactor = Math.min(x/width,y/height);
+    scaleFactor = Math.min(x / width, y / height);
     //document.body.style.transform = "scale(" + scaleFactor + ")";
-    document.body.style.transform = "scale(" + Math.min(x/width,y/640) + ")";
+    document.body.style.transform = "scale(" + Math.min(x / width, y / 640) + ")";
 
-    if (x/width < y/height) {
-        document.body.style.margin = ((((y - (height*scaleFactor))/2)+10) + "px 0px 0px 0px");
+    if (x / width < y / height) {
+        document.body.style.margin = ((((y - (height * scaleFactor)) / 2) + 10) + "px 0px 0px 0px");
     }
     else {
         //document.body.style.margin = "0px 0px " + (x - (width*scaleFactor))/2 + "px 0px";
@@ -67,32 +78,32 @@ function setSelectedObj(id) {
 }
 
 function setCoat(coatId) {
-    if (coatId == "none"){
+    if (coatId == "none") {
         displayedCoat = "none"
-    } 
+    }
     else {
         displayedCoat = document.getElementById(coatId)
     }
 }
 
 function setGloves(glovesId) {
-    if (glovesId == "none"){
+    if (glovesId == "none") {
         displayedGloves = "none"
     }
     else {
         displayedGloves = document.getElementById(glovesId)
     }
-    }
+}
 
-    function setHair(hairId) {
-        if (hairId == "none"){
-            displayedHair = "none"
-        }
-        else {
-            displayedHair = document.getElementById(hairId)
-        }
-        }
-    
+function setHair(hairId) {
+    if (hairId == "none") {
+        displayedHair = "none"
+    }
+    else {
+        displayedHair = document.getElementById(hairId)
+    }
+}
+
 
 
 //canvas functions
@@ -188,8 +199,8 @@ function rotateByImage(src, x, y, width, height, a, ratioKeep, ratioFromHeight) 
 //image variables (fetched by element ID)
 var alpacaImgVar = document.getElementById("alpacaImg");
 var raincoatImgVar = document.getElementById("coatsRaincoatImg");
-raincoatImgVar.setAttribute('xOffset',140);
-raincoatImgVar.setAttribute('yOffset',20);
+raincoatImgVar.setAttribute('xOffset', 140);
+raincoatImgVar.setAttribute('yOffset', 20);
 
 //the [interval] variable is the FPS of the mainLoop() function
 var loopInterval = 50;
@@ -215,15 +226,125 @@ function mainLoop() {
     //rotateByImage(alpacaImgVar,0,0,canWidth,canHeight,270,false,false);
     //(last two [false] parameters could be excluded in this case);
 
-    rotateByImage(displayedCoat,140,20,displayedCoat.width * alpacaRatio,displayedCoat.height * alpacaRatio,0);
-    rotateByImage(displayedGloves,300,500,displayedGloves.width * alpacaRatio,displayedGloves.height * alpacaRatio,0);
-    rotateByImage(displayedHair, 386,-50,displayedHair.width * alpacaRatio,displayedHair.height * alpacaRatio,0);
+    if (placementMode) {
+        //console.log(placementImg)
+        rotateByImage(placementImg, mouseX*2, mouseY*2, placementImg.width * alpacaRatio, placementImg.height * alpacaRatio, placementAngle);
+        //rotateByImage(displayedCoat, mouseX*2, mouseY*2, displayedCoat.width * alpacaRatio, displayedCoat.height * alpacaRatio, 0);
+    }
+    else {
+        rotateByImage(displayedCoat, 140, 20, displayedCoat.width * alpacaRatio, displayedCoat.height * alpacaRatio, 0);
+        rotateByImage(displayedGloves, 300, 500, displayedGloves.width * alpacaRatio, displayedGloves.height * alpacaRatio, 0);
+        rotateByImage(displayedHair, 386, -50, displayedHair.width * alpacaRatio, displayedHair.height * alpacaRatio, 0);
+    }
+    //rotateByImage(displayedHair, mouseX*2, mouseY*2, displayedHair.width * alpacaRatio, displayedHair.height * alpacaRatio, 0);
+
+
+
+    //take keyboard inputs
+    if ((map[37] || map[65]) && (!map[39] && !map[68])) {
+        if (placementAngle > 0) {
+            placementAngle--;
+        }
+        else {
+            placementAngle = 359;
+        }
+    }
+    else if ((!map[37] && !map[65]) && (map[39] || map[68])) {
+        if (placementAngle < 360) {
+            placementAngle++;
+        }
+        else {
+            placementAngle = 1;
+        }
+    }
 }
 
 //runs mainLoop() based on loopInterval
 setInterval(mainLoop, 1000 / loopInterval);
 
 //function that runs on page load
-window.onload = function(){
+window.onload = function () {
     setCoat('none');
+    setGloves('none');
+    setHair('none');
+}
+
+
+
+
+
+//keyboard and mouse inputs:
+
+//canvas onclick() functions
+function mouseDown() {
+    //if z,x and c keys are pressed and canvas is clicked
+    if (map[90] && map[88] && map[67]) {
+        placementMode = !placementMode;
+        if (!placementMode) {
+            placementAngle = 0;
+        }
+    }
+    else if (!(map[90] && map[88] && map[67])) {
+        console.log("X: " + mouseX*2 + ", Y: " + mouseY*2 + ", A: " + placementAngle);
+    }
+}
+
+function mouseUp() {
+
+}
+
+//get mouse position
+document.onmousemove = handleMouseMove;
+function handleMouseMove(event) {
+    var eventDoc, doc, body;
+
+    event = event || window.event; // IE-ism
+
+    // If pageX/Y aren't available and clientX/Y are,
+    // calculate pageX/Y - logic taken from jQuery.
+    // (This is to support old IE)
+    if (event.pageX == null && event.clientX != null) {
+        eventDoc = (event.target && event.target.ownerDocument) || document;
+        doc = eventDoc.documentElement;
+        body = eventDoc.body;
+
+        event.pageX = event.clientX +
+            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+            (doc && doc.clientLeft || body && body.clientLeft || 0);
+        event.pageY = event.clientY +
+            (doc && doc.scrollTop || body && body.scrollTop || 0) -
+            (doc && doc.clientTop || body && body.clientTop || 0);
+    }
+
+    let boundRect = can.getBoundingClientRect();
+    mouseX = (event.pageX / scaleFactor) - (boundRect.left/scaleFactor);
+    mouseY = (event.pageY / scaleFactor) - (boundRect.top/scaleFactor);
+}
+
+//get keys pressed
+var map = {}; // You could also use an array
+//wsad
+map[87] = false;
+map[83] = false;
+map[65] = false;
+map[68] = false;
+
+//^v<>
+map[38] = false;
+map[40] = false;
+map[37] = false;
+map[39] = false;
+
+//space
+map[32] = false;
+
+//zxc
+map[90] = false;
+map[88] = false;
+map[67] = false;
+
+onkeydown = onkeyup = function (e) {
+    e = e || event; // to deal with IE
+    map[e.keyCode] = e.type == 'keydown';
+    /* insert conditional here */
 }

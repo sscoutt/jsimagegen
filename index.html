@@ -21,12 +21,13 @@
     <img src="img/gloves/hookhands.png" style="display: none;" id="glovesHookHandsImg"> 
     <img src="img/gloves/mittens.png" style="display: none;" id="glovesMittensImg">
     <img src="img/hair/powerfulHair.png" style="display: none;" id="hairPowerfulHairImg">
+    <img src="img/hair/afroHair.png" style="display: none;" id="hairAfroHairImg">
 
 
     <div id="webPage">
         <h1>Javascript Image Generator</h1>
         <div id="innerWebPage">
-            <canvas style= "border: 3px black solid; height: 300px; width: 300px" id="imageDisplay"></canvas>
+            <canvas style= "border: 3px black solid; height: 300px; width: 300px" id="imageDisplay" onmousedown="mouseDown()" onmouseup="mouseUp()"></canvas>
             <div id="optionsContainer">
                 <div class="subMenu" id="categoryContainer">
                     <h2>Categories</h2>
@@ -45,12 +46,12 @@
                     <h2>Hair Options</h2>
                     <div class="columnContainer">
                         <div class="rowContainer">
-                            <div class="normBtn" id="sillyHairBtn" onclick= "">Silly Hair</div>
-                            <div class="normBtn" id="sweetHairBtn" onclick= "">Sweet Hair</div>
+                            <div class="normBtn" id="sillyHairBtn" onclick="setHair('hairAfroHairImg')">Afro Hair</div>
+                            <div class="normBtn" id="sweetHairBtn" onclick="">Sweet Hair</div>
                         </div>
                         <div class="rowContainer">
                             <div class="normBtn" id="powerfulHairBtn" onclick="setHair('hairPowerfulHairImg')">Powerful Hair</div>
-                            <div class="normBtn" id="noHairBtn" onclick="">No Hair</div>
+                            <div class="normBtn" id="noHairBtn" onclick="setHair('none')">No Hair</div>
                         </div>
                     </div>
                 </div>
