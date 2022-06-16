@@ -84,6 +84,15 @@ function setGloves(glovesId) {
     }
     }
 
+    function setHair(hairId) {
+        if (hairId == "none"){
+            displayedHair = "none"
+        }
+        else {
+            displayedHair = document.getElementById(hairId)
+        }
+        }
+    
 
 
 //canvas functions
@@ -208,6 +217,7 @@ function mainLoop() {
 
     rotateByImage(displayedCoat,140,20,displayedCoat.width * alpacaRatio,displayedCoat.height * alpacaRatio,0);
     rotateByImage(displayedGloves,300,500,displayedGloves.width * alpacaRatio,displayedGloves.height * alpacaRatio,0);
+    rotateByImage(displayedHair, 386,-50,displayedHair.width * alpacaRatio,displayedHair.height * alpacaRatio,0);
 }
 
 //runs mainLoop() based on loopInterval
