@@ -241,20 +241,22 @@ function mainLoop() {
 
 
     //take keyboard inputs
-    if ((map[37] || map[65]) && (!map[39] && !map[68])) {
-        if (placementAngle > 0) {
-            placementAngle--;
+    if (placementMode) {
+        if ((map[37] || map[65]) && (!map[39] && !map[68])) {
+            if (placementAngle > 0) {
+                placementAngle--;
+            }
+            else {
+                placementAngle = 359;
+            }
         }
-        else {
-            placementAngle = 359;
-        }
-    }
-    else if ((!map[37] && !map[65]) && (map[39] || map[68])) {
-        if (placementAngle < 360) {
-            placementAngle++;
-        }
-        else {
-            placementAngle = 1;
+        else if ((!map[37] && !map[65]) && (map[39] || map[68])) {
+            if (placementAngle < 360) {
+                placementAngle++;
+            }
+            else {
+                placementAngle = 1;
+            }
         }
     }
 }
@@ -284,8 +286,8 @@ function mouseDown() {
             placementAngle = 0;
         }
     }
-    else if (!(map[90] && map[88] && map[67])) {
-        console.log("X: " + mouseX*2 + ", Y: " + mouseY*2 + ", A: " + placementAngle);
+    else if (!(map[90] && map[88] && map[67]) && placementMode) {
+        console.log("X: " + (mouseX*2).toPrecision(4) + ", Y: " + (mouseY*2).toPrecision(4) + ", A: " + placementAngle);
     }
 }
 
