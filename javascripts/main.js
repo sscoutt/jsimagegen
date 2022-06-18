@@ -71,6 +71,10 @@ function toggleVisibility(selectedObj) {
     }
 }
 
+//sets the image that placementMode displays
+function setPlacementImg(id) {
+    placementImg = document.getElementById(id);
+}
 
 
 function setSelectedObj(id) {
@@ -83,6 +87,7 @@ function setCoat(coatId) {
     }
     else {
         displayedCoat = document.getElementById(coatId)
+        setPlacementImg(coatId);
     }
 }
 
@@ -92,6 +97,7 @@ function setGloves(glovesId) {
     }
     else {
         displayedGloves = document.getElementById(glovesId)
+        setPlacementImg(glovesId);
     }
 }
 
@@ -101,6 +107,7 @@ function setHair(hairId) {
     }
     else {
         displayedHair = document.getElementById(hairId)
+        setPlacementImg(hairId);
     }
 }
 
@@ -278,7 +285,7 @@ window.onload = function () {
 //keyboard and mouse inputs:
 
 //canvas onclick() functions
-function mouseDown() {
+function mouseDownCan() {
     //if z,x and c keys are pressed and canvas is clicked
     if (map[90] && map[88] && map[67]) {
         placementMode = !placementMode;
@@ -286,13 +293,17 @@ function mouseDown() {
             placementAngle = 0;
         }
     }
-    else if (!(map[90] && map[88] && map[67]) && placementMode) {
-        console.log("X: " + (mouseX*2).toPrecision(4) + ", Y: " + (mouseY*2).toPrecision(4) + ", A: " + placementAngle);
-    }
+    //else if (!(map[90] && map[88] && map[67]) && placementMode) {
+        //console.log("X: " + (mouseX*2).toPrecision(4) + ", Y: " + (mouseY*2).toPrecision(4) + ", A: " + placementAngle);
+    //}
 }
 
-function mouseUp() {
-
+//canvas onclick() functions
+function mouseDownPage() {
+    //if z,x and c keys are pressed and canvas is clicked
+    if (!(map[90] && map[88] && map[67]) && placementMode) {
+        console.log("X: " + (mouseX*2).toPrecision(4) + ", Y: " + (mouseY*2).toPrecision(4) + ", A: " + placementAngle);
+    }
 }
 
 //get mouse position
